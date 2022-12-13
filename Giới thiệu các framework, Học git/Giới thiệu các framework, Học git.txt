@@ -1,4 +1,16 @@
----------Giới thiệu các framework, Học git--------
+---------Học git--------
+
+- git init: Tạo kho chứa git mới tại local
+- git add ./--all/-A: để đánh chỉ mục các nội dung mới - để thực hiện
+commit các file thay đổi. lưu ở khu vực staging(sắp xếp, chuẩn bị)
+working directory -> staging -> .git repository
+
+- git status -s: hiện thị trạng thái các file trước khi commit
+UU = updated but unmerged
+- git reset --soft HEAD~1: (commit mà chưa push) undo về commit trước
+đó, những thay đổi commit cuối sẽ chuyển vào staging
+    --hard: nội dung của commit cuối không đưa vào staging mà sẽ hủy
+    luôn
 
 
 1; tạo một nhánh mới
@@ -71,7 +83,7 @@ git checkout -b old-master <commit code>
 
 9; Xóa nhánh
 
-git branch -d branch_name
+git branch -D branch_name
 
 10; không phục local branch về trạng thái trước đó
 
@@ -88,3 +100,15 @@ git checkout dev
 
 git reset 8062f9 --hard
 brC
+
+11, git merge <branch_name> trộn nhánh khác vào nhánh đang đứng
+
+
+-------------Giới thiệu các framework--------
+Framework 
+
+Angular 8: tính năng được mong chờ nhất là angular ivy engine, cập nhật tyscript 3.4
+ivy là trình biên dịch của angular hoạt động như một cơ chế render mới
+Angular 9: cập nhật tyscript 3.7
+
+
