@@ -1,1 +1,90 @@
 ---------Giới thiệu các framework, Học git--------
+
+
+1; tạo một nhánh mới
+
+git checkout master
+
+git branch -b new_branch
+
+-b: để chỉ tạo một nhánh mới, với code và lịch sử 
+hoàn toàn giống với master
+
+2; Liệt kê danh sách các nhánh 
+
+git checkout master
+
+git branch
+
+3; Chuyển đổi qua lại giữa các nhánh
+
+git checkout cuongnguyen1
+
+4; chuyển đổi qua lại giữa các nhánh bị yêu cẩu commit
+
+khi đang code dở mà lại muốn chuyển nhánh. chúng ta 
+phải chuyển toàn bộ working tree vào stash, lấy ra khi
+chúng ta muốn
+
+git stash
+
+git checkout master
+
+git checkout cuongnguyen1
+
+git stash pop // lấy code trong stash ra
+
+5; so sánh thay đổi giữa các branch
+
+git checkout master
+
+git diff cuongnguyen1
+
+git diff cuongnguyen1 --name-only // chỉ muốn xem tên 
+những file khác nhau
+
+6; đẩy mã nguồn local branch lên remote branch
+
+git add .
+
+git commit -m "update"
+
+git remote -v
+
+git push origin cuongnguyen1
+
+// code sẽ đẩy lên nhánh cuongnguyen1 remote origin
+
+7; cập nhật thay đổi ở remote branch với local branch
+
+git pull origin master
+
+// có thể từ nhánh này pull code nhánh khác về
+// git remote -v phải thể lập remote repo thì mới pull
+được
+// git pull thực hiện hai lệnh git fetch và git merge
+
+8; tạo nhánh mới tại một commit cụ thể
+tạo một nhánh code tương ứng với một commit nào đó
+
+git checkout -b old-master <commit code>
+
+9; Xóa nhánh
+
+git branch -d branch_name
+
+10; không phục local branch về trạng thái trước đó
+
+bước 1: xác định commit muốn quay về
+
+bước 2: sử dụng git reset commit_code
+
+--sort: giữ lại index và working tree hiện tại
+--mixed: Sẽ xóa bỏ index còn working tree hiện tại sẽ 
+còn nguyên.
+--hard : Sẽ xóa bỏ cả index và cả working tree hiện tại.
+
+git checkout dev
+
+git reset 8062f9 --hard
+brC
