@@ -108,7 +108,11 @@ brC
 Framework 
 
 Angular 8: tính năng được mong chờ nhất là angular ivy engine, cập nhật tyscript 3.4
-ivy là trình biên dịch của angular hoạt động như một cơ chế render mới
-Angular 9: cập nhật tyscript 3.7
+ivy là trình biên dịch của angular hoạt động như một cơ chế render mới. Sau khi Chuyển
+sang ivy ứng dụng vẫn làm việc như trước nhưng giảm kích hước bundle
+Angular 9: cập nhật tyscript 3.7. angular 9 có angular ivy chúng ta không cần tsconfig.jon
+nữa
+
+- không có gì thay đổi nhiều so với bản 8
 
 
