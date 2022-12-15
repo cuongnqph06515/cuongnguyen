@@ -20,7 +20,7 @@ export class WelcomeComponent implements OnInit{
 
 
   getAllUser(){
-   this.employeeService.getAllUser().subscribe({
+   this.employeeService.getAllEmployee().subscribe({
     next: (data)=>{
       console.log(data);
       this.listEmployee = data;

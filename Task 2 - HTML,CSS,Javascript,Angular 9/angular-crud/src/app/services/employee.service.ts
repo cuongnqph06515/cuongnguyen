@@ -13,10 +13,24 @@ export class EmployeeService{
 
     }
 
-    getAllUser(): Observable<any>{
+    getAllEmployee(): Observable<any>{
         return this.http.get<Employee>(`${this.url}/employee`);
     }
-    getUserById(id: number): Observable<any>{
+
+    getEmployeeById(id: number): Observable<any>{
         return this.http.get<Employee>(`${this.url}/employee/${id}`)
     }
+
+    addEmployee(data: Employee):Observable<any>{
+        return this.http.post(`${this.url}/employee`, data);
+    }
+
+    updateEmployee(data: Employee):Observable<any>{
+        return this.http.put(`${this.url}/employee/${data.id}`, data)
+    }
+
+    deleteEmployee(id: any){
+        return this.http.delete(`${this.url}/employee/${id}`)
+    }
+
 }

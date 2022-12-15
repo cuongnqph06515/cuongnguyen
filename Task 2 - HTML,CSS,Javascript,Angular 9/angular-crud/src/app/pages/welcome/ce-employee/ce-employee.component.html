@@ -1,0 +1,68 @@
+<form nz-form >
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="10">
+            <nz-form-item>
+                <nz-form-label>
+                    Name
+                </nz-form-label>
+                <nz-form-control>
+                    <input nz-input placeholder="Enter name">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="10">
+            <nz-form-item>
+                <nz-form-label>
+                    Mail
+                </nz-form-label>
+                <nz-form-control>
+                    <input nz-input placeholder="Enter mail">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="10">
+            <nz-form-item>
+                <nz-form-label>
+                    Address
+                </nz-form-label>
+                <nz-form-control>
+                    <input nz-input placeholder="Enter name">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col [nzSpan]="10">
+            <nz-form-item>
+                <nz-form-label>
+                    Phone
+                </nz-form-label>
+                <nz-form-control>
+                    <input nz-input placeholder="Enter mail">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="10">
+            <nz-form-item>
+                <nz-form-label>
+                    Gender
+                </nz-form-label>
+                <nz-form-control>
+                    <nz-radio-group>
+                        <label nz-radio nzValue="A">Male</label>
+                        <label nz-radio nzValue="B">Female</label>
+                        <label nz-radio nzValue="C">Other</label>
+                      </nz-radio-group>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+    <hr>
+    <button nz-button nzType="primary">Save</button>
+    <button style="margin-left: 10px;" nz-button nzType="primary" nzDanger routerLink="/welcome">Cancel</button>
+</form>
+
+
