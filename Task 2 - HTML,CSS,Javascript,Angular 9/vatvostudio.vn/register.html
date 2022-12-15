@@ -17,12 +17,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="library/fontawesome-free-6.2.1-web/css/all.min.css">
-        <!-- <link rel="stylesheet" href="library/fontawesome-free-6.2.1-web/css/brands.css">
-    <link rel="stylesheet" href="library/fontawesome-free-6.2.1-web/css/solid.css"> -->
-        <script src="script.js"></script>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="register.css">
-
         <title>Home</title>
     </head>
 
@@ -49,10 +45,8 @@
                 <div class="menu">
                     <div class="menu-left">
                         <ul id="lstMenu">
-                            <li class="menu-item active"><a
-                                    href="http://127.0.0.1:5500/vatvostudio.vn/index.html">HOME</a></li>
-                            <li class="menu-item"><a href="http://127.0.0.1:5500/vatvostudio.vn/register.html">ĐĂNG
-                                    KÝ</a></li>
+                            <li class="menu-item active"><a href="http://127.0.0.1:5501/index.html">HOME</a></li>
+                            <li class="menu-item"><a href="http://127.0.0.1:5501/register.html">ĐĂNG KÝ</a></li>
                             <li class="menu-item"><a href="https://vatvostudio.vn/">VẬT VỜ ĐÁNH GIÁ</a></li>
                             <li class="menu-item"><a href="https://vatvostudio.vn/">GÓC NHÌN</a></li>
                             <li class="menu-item"><a href="https://vatvostudio.vn/">KÈO THƠM</a></li>
@@ -69,47 +63,61 @@
         <div class="content">
             <div class="container">
                 <div class="container">
-                    <form>
-                        <div>
-                            <h1>Đăng ký</h1>
-                            <p>Nhập thông tin vào form để tạo tài khoản.</p>
-                            <hr>
-    
-                            <label><b>Fullname</b></label>
-                            <input type="text" placeholder="Enter Fullname" name="fullname" id="fullname" required>
-    
-                            <label><b>Username</b></label>
-                            <input type="text" placeholder="Enter Username" name="username" id="username" required>
-
-                            <label><b>Password</b></label>
-                            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-    
-                            <label><b>Repeat Password</b></label>
-                            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-                            
-                            <label><b>Gender</b></label>
-                            <br>
-                            <br>
-                            <input type="radio" name="gender" id="gender" required>Nam
-                            <br>
-                            <input type="radio" name="gender" id="gender" required>Nữ
-                            <br>
-                            <label><b>Email</b></label>
-                            <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-                            <label><b>Date of birth</b></label>
-                            <input type="date" placeholder="Enter Date of birth" name="birth" id="birth" required>
-
-                            <label><b>Address</b></label>
-                            <input type="text" placeholder="Enter Address" name="address" id="address" required>
-
-                            <label><b>Mobile</b></label>
-                            <input type="text" placeholder="Enter Mobile" name="mobile" id="mobile" required>
-
-                            <hr>
-                            <button type="submit" class="registerbtn">Register</button>
+                    <form id="form">
+                        <div class="form-title">
+                            <h3>Đăng ký</h3>
                         </div>
-    
+                        <div class="form-grid">
+                            <div class="form-item">
+                                <div>Fullname</div>
+                                <input type="text" class="form-control" id="fullname" placeholder="Enter fullname">
+                                <div class="error"></div>
+                            </div>
+                            <div class="form-item">
+                                <div>Username</div>
+                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                <div class="error"></div>
+                            </div>
+                            <div class="form-item">
+                                <div>Password</div>
+                                <input type="password" class="form-control" id="password" placeholder="Enter password">
+                                <div class="error"></div>
+                            </div>
+                            <div class="form-item">
+                                <div >Repeat password</div>
+                                <input type="password" class="form-control" id="repassword" placeholder="Enter repeat password">
+                                <div class="error"></div>
+                            </div>
+
+                            <div class="form-item">
+                                <div for="">Gender</div>
+                                <input type="radio" class="gender" name="gender" id="male"> Nam
+                                <input type="radio" class="gender" name="gender" id="female"> Nữ
+                                <input type="radio" class="gender" name="gender" id="other"> Khác
+                                <div class="error"></div>
+                            </div>
+                            <div class="form-item">
+                                <div for="">Email</div>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email">
+                                <div class="error"></div>
+                            </div>
+                            <div class="form-item">
+                                <div for="">Address</div>
+                                <input type="text" class="form-control" id="address" placeholder="Enter address">
+                                <div class="error"></div>
+                            </div>
+                            <div class="form-item">
+                                <div for="">Date of birth</div>
+                                <input type="date" id="birthday" class="form-control" placeholder="dd/mm/yyyy">
+                                <div class="error"></div>
+                            </div>
+                            <div class="form-item">
+                                <div for="">Mobile</div>
+                                <input type="text" class="form-control" id="mobile" placeholder="Enter phone number">
+                                <div class="error"></div>
+                            </div>
+                        </div>
+                        <button type="submit" id="btn">Đăng ký</button> <button type="button" id="btn" style="background-color: red;border: red;"><a href="http://127.0.0.1:5501/index.html">Hủy</a></button>
                     </form>
                 </div>
             </div>
