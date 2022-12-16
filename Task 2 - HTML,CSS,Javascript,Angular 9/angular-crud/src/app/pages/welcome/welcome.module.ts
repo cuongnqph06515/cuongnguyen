@@ -10,6 +10,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
     NzButtonModule,
     NzFormModule,
     NzInputModule,
-    NzRadioModule],
+    NzRadioModule,
+  ReactiveFormsModule],
   declarations: [WelcomeComponent, CeEmployeeComponent],
   exports: [WelcomeComponent]
 })

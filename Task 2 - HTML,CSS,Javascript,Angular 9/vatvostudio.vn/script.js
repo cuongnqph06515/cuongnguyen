@@ -13,6 +13,7 @@ for (var i = 0; i < menuItem.length; i++) {
 
 let id = (id) => document.getElementById(id);
 let classes = (className) => document.getElementsByClassName(className);
+let valid = true;
 
 let fullname = id("fullname"),
     username = id("username"),
@@ -38,40 +39,50 @@ let validate = (id, serial, message) =>{
         if(id.value.trim() === "" && id !== repassword){
             errorMessage[serial].innerHTML = message + "không thể để trống!";
             id.style.border = "2px solid red";
+            valid = false;
         }
         else if((id === fullname || id === username) && id.value.trim().length > 200 ){
             errorMessage[serial].innerHTML = message + "không nhập quá 200 ký tự!";
             id.style.border = "2px solid red";
+            valid = false;
         }
         else if(id === username && usernamePatern.test(id.value.trim())){
             errorMessage[serial].innerHTML = message + "không chứa ký tự đặc biệt và khoảng trắng!";
             id.style.border = "2px solid red";
+            valid = false;
         }else if(id === password && (id.value.trim().length < 5 || id.value.trim().length > 51)){
             errorMessage[serial].innerHTML = message + "nhập trong khoảng 5 đến 51 ký tự!";
             id.style.border = "2px solid red";
+            valid = false;
         }else if(id === repassword && id.value !== password.value){
             errorMessage[serial].innerHTML = message + "không chính xác!";
             id.style.border = "2px solid red";
+            valid = false;
         }
         else if(id === email){
             if(!emailPatern.test(id.value.trim())){
                 errorMessage[serial].innerHTML = message + "không đúng định dạng. ex: example@gmail.com";
                 id.style.border = "2px solid red";
+                valid = false;
             }else if(id.value.trim().length > 100){
                 errorMessage[serial].innerHTML = message + "không quá 100 ký tự!";
                 id.style.border = "2px solid red";
+                valid = false;
             }else{
                     errorMessage[serial].innerHTML = '';
                     id.style.border = "1px solid #e6e6e6";
+                    valid = true;
             }
         }
         else if(id===address && id.value.length >500){
             errorMessage[serial].innerHTML = message + "không quá 500 ký tự!";
                 id.style.border = "2px solid red";
+                valid = false;
         }
         else{
             errorMessage[serial].innerHTML = '';
             id.style.border = "1px solid #e6e6e6";
+            valid = true;
         }
     }
 }
@@ -91,13 +102,16 @@ let checkMobile = (id, serial) =>{
     if(id.value.trim() === ""){
         errorMessage[serial].innerHTML ="Số điện thoại không để trống!";
         id.style.border = "2px solid red";
+        valid = false;
     }else 
     if(!comp84 && !comp0){
         errorMessage[serial].innerHTML = "Số điện thoại không đúng định dạng!";
         id.style.border = "2px solid red";
+        valid = false;
     }else{
         errorMessage[serial].innerHTML = '';
         id.style.border = "1px solid #e6e6e6";
+        valid = true;
     }
 }
 
@@ -109,9 +123,6 @@ let validateBirthday = (date) => {
     let year = parseInt(date.substring(0,4));
     let month = parseInt(date.substring(5,7));
     let day = parseInt(date.substring(8,10));
-
-    console.log(currentDay, currentMonth, currentYear);
-    console.log(day, month, year);
     if(year > currentYear){
        return -1;
     }else if(month > currentMonth && year === currentYear){
@@ -124,19 +135,25 @@ let validateBirthday = (date) => {
     
 }
 
+let toggleButton = (value) =>{
+    id(value).classList.toggle("notice-content");
+}
+
 let checkBirthday = (id, serial) =>{
-    console.log(id.value);
     if(id.value.trim() === ""){
         errorMessage[serial].innerHTML ="Ngày sinh không để trống!";
         id.style.border = "2px solid red";
+        valid = false;
     }
     else if(validateBirthday(id.value)){
         errorMessage[serial].innerHTML ="Ngày sinh không lớn hơn ngày hiện tại!";
         id.style.border = "2px solid red";
+        valid = false;
     }
     else{
         errorMessage[serial].innerHTML = '';
         id.style.border = "1px solid #e6e6e6";
+        valid = true;
     }
 }
 
@@ -151,6 +168,12 @@ id("form").addEventListener("submit", (e)=>{
     validate(address,6, "Địa chỉ ");
     checkBirthday(birthday,7);
     checkMobile(mobile,8);
+    if(valid){
+        toggleButton("notice");
+        setTimeout(()=>{
+            toggleButton("notice");
+        }, 2000);
+    }
 });
 
 

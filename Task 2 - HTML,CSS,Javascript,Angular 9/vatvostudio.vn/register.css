@@ -82,3 +82,22 @@ button {
   font-size: 17px;
   padding-top: 5px;
 }
+
+#notice {
+  position: fixed;
+  top: 2px;
+  right: 2px;
+  width: 240px;
+  height: 100px;
+  border: 1px solid rgb(14, 240, 228);
+  background-color: rgb(14, 240, 228);
+  display: none;
+  transition: all 0.25s;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.notice-content {
+  display: flex !important;
+}
+

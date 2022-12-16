@@ -1,4 +1,4 @@
-<form nz-form >
+<form nz-form [formGroup]="employeeForm" (submit)="onSubmit()">
     <div nz-row [nzGutter]="24">
         <div nz-col [nzSpan]="10">
             <nz-form-item>
@@ -6,7 +6,21 @@
                     Name
                 </nz-form-label>
                 <nz-form-control>
-                    <input nz-input placeholder="Enter name">
+                    <input nz-input placeholder="Enter name" formControlName="name" [ngClass]="isSubmit && employeeForm.get('name')?.errors ? 'err':''">
+                    <div class="error" *ngIf="isSubmit">
+                        <span *ngIf="employeeForm.get('name')?.errors?.required">
+                            Tên không được để trống
+                        </span>
+                        <span *ngIf="employeeForm.get('name')?.errors?.minlength">
+                            Nhập tên lớn hơn 5 ký tự
+                        </span>
+                        <span *ngIf="employeeForm.get('name')?.errors?.maxlength">
+                            Nhập tên nhỏ hơn 51 ký tự
+                        </span>
+                    </div>
+                    <pre>
+                        {{employeeForm.get('name')?.errors | json}}
+                    </pre>
                 </nz-form-control>
             </nz-form-item>
         </div>
@@ -16,7 +30,21 @@
                     Mail
                 </nz-form-label>
                 <nz-form-control>
-                    <input nz-input placeholder="Enter mail">
+                    <input nz-input placeholder="Enter mail" formControlName="mail" [ngClass]="isSubmit && employeeForm.get('mail')?.errors ? 'err':''">
+                    <div class="error" *ngIf="isSubmit">
+                        <span *ngIf="employeeForm.get('mail')?.errors?.required">
+                            Email không được để trống
+                        </span>
+                        <span *ngIf="employeeForm.get('mail')?.errors?.maxlength">
+                            Nhập email không quá 100 ký tự
+                        </span>
+                        <span *ngIf="employeeForm.get('mail')?.errors?.pattern">
+                            Mail không đúng định dạng
+                        </span>
+                    </div>
+                    <pre>
+                        {{employeeForm.get('address')?.errors | json}}
+                    </pre>
                 </nz-form-control>
             </nz-form-item>
         </div>
@@ -28,7 +56,18 @@
                     Address
                 </nz-form-label>
                 <nz-form-control>
-                    <input nz-input placeholder="Enter name">
+                    <input nz-input placeholder="Enter address" formControlName="address" [ngClass]="isSubmit && employeeForm.get('address')?.errors ? 'err':''">
+                    <div class="error" *ngIf="isSubmit">
+                        <span *ngIf="employeeForm.get('address')?.errors?.required">
+                            Address không được để trống
+                        </span>
+                        <span *ngIf="employeeForm.get('address')?.errors?.maxlength">
+                            Nhập address không quá 500 ký tự
+                        </span>
+                    </div>
+                    <pre>
+                        {{employeeForm.get('address')?.errors | json}}
+                    </pre>
                 </nz-form-control>
             </nz-form-item>
         </div>
@@ -38,7 +77,18 @@
                     Phone
                 </nz-form-label>
                 <nz-form-control>
-                    <input nz-input placeholder="Enter mail">
+                    <input nz-input placeholder="Enter phone" formControlName="phone" [ngClass]="isSubmit && employeeForm.get('phone')?.errors ? 'err':''">
+                    <div class="error" *ngIf="isSubmit">
+                        <span *ngIf="employeeForm.get('phone')?.errors?.required">
+                            Số điện thoại không được để trống
+                        </span>
+                        <span *ngIf="employeeForm.get('phone')?.errors?.pattern">
+                            Số điện thoại không chính xác
+                        </span>
+                    </div>
+                    <pre>
+                        {{employeeForm.get('phone')?.errors | json}}
+                    </pre>
                 </nz-form-control>
             </nz-form-item>
         </div>
@@ -50,18 +100,22 @@
                     Gender
                 </nz-form-label>
                 <nz-form-control>
-                    <nz-radio-group>
-                        <label nz-radio nzValue="A">Male</label>
-                        <label nz-radio nzValue="B">Female</label>
-                        <label nz-radio nzValue="C">Other</label>
-                      </nz-radio-group>
+                      <input type="radio" [value]="true" formControlName="gender" style="margin-left: 20px;"> Male
+                      <input type="radio" [value]="false" formControlName="gender" style="margin-left: 20px;"> Female
+                      <div class="error" *ngIf="isSubmit">
+                        <span *ngIf="employeeForm.get('gender')?.errors?.required">
+                            Chọn giới tính
+                        </span>
+                    </div>
+                    <pre>
+                        {{employeeForm.get('gender')?.errors | json}}
+                    </pre>
                 </nz-form-control>
             </nz-form-item>
         </div>
     </div>
-
     <hr>
-    <button nz-button nzType="primary">Save</button>
+    <button nz-button nzType="primary" type="submit">Save</button>
     <button style="margin-left: 10px;" nz-button nzType="primary" nzDanger routerLink="/welcome">Cancel</button>
 </form>
 
