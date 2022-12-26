@@ -32,6 +32,7 @@
                 <div class="menu">
                     <div class="menu-left">
                         <ul id="lstMenu">
+                            <li class="menu-item"><img src="images/logo.png"></li>
                             <li class="menu-item active"><a href="http://127.0.0.1:5501/index.html">HOME</a></li>
                             <li class="menu-item"><a href="http://127.0.0.1:5501/register.html">ĐĂNG KÝ</a></li>
                             <li class="menu-item"><a href="https://vatvostudio.vn/">VẬT VỜ ĐÁNH GIÁ</a></li>
@@ -42,6 +43,7 @@
                     </div>
                     <div class="menu-right">
                         <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-bars" style="cursor: pointer;" id="menu-bar" onclick="menuToggle()"></i>
                     </div>
                 </div>
             </div>
@@ -49,61 +51,60 @@
 
         <div class="content">
             <div class="container">
-                <div class="main-news">
-                    <div class="new-left">
-                        <a href="http://127.0.0.1:5501/detail.html">
-                            <img src="images/banner_miui.jpg" alt="nothing" />
-                        </a>
-                        <div class="main-title">
-                            <h1><a href="http://127.0.0.1:5501/detail.html">MIUI 14 ra mắt: Cải thiện 60% hiệu suất, giảm 23% dung lượng hệ thống</a></h1>
+                    <div class="main-news">
+                        <div class="new-left">
+                            <a href="http://127.0.0.1:5501/detail.html">
+                                <img src="images/banner_miui.jpg" alt="nothing" />
+                            </a>
+                            <div class="main-title">
+                                <h1><a href="http://127.0.0.1:5501/detail.html">MIUI 14 ra mắt: Cải thiện 60% hiệu suất, giảm 23% dung lượng hệ thống</a></h1>
+                            </div>
+                            <div class="main-overlay">TIN TỨC</div>
                         </div>
-                        <div class="main-overlay">TIN TỨC</div>
+                        <div class="new-right">
+                            <img src="images/banner-xiaomi.jpg" alt="nothing" />
+                            <div class="main-title">
+                                <h1>Xiaomi 13 và Xiaomi 13 Pro ra mắt: Camera Leica, Snapdragon 8 Gen 2, giá từ 13 triệu đồng</h1>
+                            </div>
+                            <div class="main-overlay">TIN TỨC</div>
+                        </div>
                     </div>
-                    <div class="new-right">
-                        <img src="images/banner-xiaomi.jpg" alt="nothing" />
-                        <div class="main-title">
-                            <h1>Xiaomi 13 và Xiaomi 13 Pro ra mắt: Camera Leica, Snapdragon 8 Gen 2, giá từ 13 triệu đồng</h1>
+                    <div class="post">
+                        <div class="post-left">
+                            <img src="images/post-1.jpg" alt="nothing" />
+                            <div class="post-title">
+                                <h3>Đây là 5 mẫu iPhone cũ đáng mua nhất dịp cuối năm với giá từ 4 triệu đồng</h3>
+                            </div>
+                            <div class="time">
+                                <i class="fa-regular fa-clock"></i><p>22 hours ago</p>
+                            </div>
+                            <div class="main-overlay">TIN TỨC</div>
                         </div>
-                        <div class="main-overlay">TIN TỨC</div>
+                        <div class="post-center">
+                            <img src="images/post-2.jpg" alt="nothing" />
+                            <div class="post-title">
+                                <h3>Samsung tiếp tục dẫn đầu Top 10 thương hiệu tốt nhất Việt Nam năm 2022</h3>
+                            </div>
+                            <div class="time">
+                                <i class="fa-regular fa-clock"></i><p>22 hours ago</p>
+                            </div>
+                            <div class="main-overlay" style="background-color: #43aa8b ;">VẬT VỜ ĐÁNH GIÁ</div>
+                        </div>
+                        <div class="post-right">
+                            <img src="images/post-3.jpg" alt="nothing" />
+                            <div class="post-title">
+                                <h3>Trên tay Chromecast with Google TV 4K: TV Box Android siêu mượt giá chỉ hơn 800 nghìn đồng</h3>
+                            </div>
+                            <div class="time">
+                                <i class="fa-regular fa-clock"></i><p>22 hours ago</p>
+                            </div>
+                            <div class="main-overlay">TIN TỨC</div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="post">
-                    <div class="post-left">
-                        <img src="images/post-1.jpg" alt="nothing" />
-                        <div class="post-title">
-                            <h3>Đây là 5 mẫu iPhone cũ đáng mua nhất dịp cuối năm với giá từ 4 triệu đồng</h3>
-                        </div>
-                        <div class="time">
-                            <i class="fa-regular fa-clock"></i><p>22 hours ago</p>
-                        </div>
-                        <div class="main-overlay">TIN TỨC</div>
+    
+                    <div class="banner">
+                        <img src="images/banner.jpg" alt="nothing" />
                     </div>
-                    <div class="post-center">
-                        <img src="images/post-2.jpg" alt="nothing" />
-                        <div class="post-title">
-                            <h3>Samsung tiếp tục dẫn đầu Top 10 thương hiệu tốt nhất Việt Nam năm 2022</h3>
-                        </div>
-                        <div class="time">
-                            <i class="fa-regular fa-clock"></i><p>22 hours ago</p>
-                        </div>
-                        <div class="main-overlay" style="background-color: #43aa8b ;">VẬT VỜ ĐÁNH GIÁ</div>
-                    </div>
-                    <div class="post-right">
-                        <img src="images/post-3.jpg" alt="nothing" />
-                        <div class="post-title">
-                            <h3>Trên tay Chromecast with Google TV 4K: TV Box Android siêu mượt giá chỉ hơn 800 nghìn đồng</h3>
-                        </div>
-                        <div class="time">
-                            <i class="fa-regular fa-clock"></i><p>22 hours ago</p>
-                        </div>
-                        <div class="main-overlay">TIN TỨC</div>
-                    </div>
-                </div>
-
-                <div class="banner">
-                    <img src="images/banner.jpg" alt="nothing" />
-                </div>
 
                 <div class="list">
                     <div class="list-left">
@@ -220,6 +221,31 @@
                 </div>
             </div>
         </div>
+        <div class="menu-toggle" id="toggle">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="header-left">
+                        </div>
+                        <div class="header-center">
+                            <img src="images/logo.png" alt="nothing" style="margin-top: 20px;">
+                        </div>
+                        <div class="header-right">
+                            <i class="fa-solid fa-xmark" onclick="menuToggle()"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggle-content">
+                    <ul class="toggle-item">
+                        <li ><a href="http://127.0.0.1:5501/index.html">HOME</a></li>
+                        <li ><a href="http://127.0.0.1:5501/register.html">ĐĂNG KÝ</a></li>
+                        <li ><a href="https://vatvostudio.vn/">VẬT VỜ ĐÁNH GIÁ</a></li>
+                        <li ><a href="https://vatvostudio.vn/">GÓC NHÌN</a></li>
+                        <li ><a href="https://vatvostudio.vn/">KÈO THƠM</a></li>
+                        <li ><a href="https://vatvostudio.vn/">TIPS & TRICKS</a></li>
+                        </ul>
+                </div>
+        </div>
+        <div id="overlay"></div>
         <script src="script.js"></script>
 </body>
 </html>

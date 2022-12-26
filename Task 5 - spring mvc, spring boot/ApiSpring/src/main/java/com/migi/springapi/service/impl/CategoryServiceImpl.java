@@ -18,18 +18,18 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getListCategory() throws NullPointerException {
         List<Category> lstCategory = categoryJPA.findAll();
         if(lstCategory == null || lstCategory.isEmpty()){
-            throw new NullPointerException("Category is empty:");
+            throw new NullPointerException("Không có giá trị: ");
         }
         return lstCategory;
     }
 
     @Override
-    public Category getCategoryById(Integer categoryCode) throws NullPointerException{
-        Category category=null;
+    public Category getCategoryById(Integer categoryCode){
+        Category category = null;
         try {
             category = categoryJPA.findById(categoryCode).get();
         }catch(Exception e){
-            throw new NullPointerException("Error in categoryService: "+ e.getMessage());
+            return null;
         }
         return category;
     }

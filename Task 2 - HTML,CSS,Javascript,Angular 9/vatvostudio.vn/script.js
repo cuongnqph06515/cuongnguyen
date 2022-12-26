@@ -157,26 +157,32 @@ let checkBirthday = (id, serial) =>{
     }
 }
 
-id("form").addEventListener("submit", (e)=>{
-    e.preventDefault();
-    validate(fullname,0, "Họ tên ");
-    validate(username,1, "Tài khoản ");
-    validate(password,2, "Mật khẩu ");
-    validate(repassword,3, "Re password ");
-    checkGender(gender,4, "Giới tính ");
-    validate(email,5, "Email ");
-    validate(address,6, "Địa chỉ ");
-    checkBirthday(birthday,7);
-    checkMobile(mobile,8);
-    if(valid){
-        toggleButton("notice");
-        setTimeout(()=>{
+["submit"].forEach(type =>{
+    id("form").addEventListener(type, (e)=>{
+        e.preventDefault();
+        validate(fullname,0, "Họ tên ");
+        validate(username,1, "Tài khoản ");
+        validate(password,2, "Mật khẩu ");
+        validate(repassword,3, "Re password ");
+        checkGender(gender,4, "Giới tính ");
+        validate(email,5, "Email ");
+        validate(address,6, "Địa chỉ ");
+        checkBirthday(birthday,7);
+        checkMobile(mobile,8);
+        if(valid){
             toggleButton("notice");
-        }, 2000);
-    }
+            setTimeout(()=>{
+                toggleButton("notice");
+                window.location.href="http://127.0.0.1:5501/index.html";
+            }, 2000);
+        }
+    });
 });
 
-
+function menuToggle(){
+    id("toggle").classList.toggle("show-menu");
+    id("overlay").classList.toggle("show-overlay");
+}
 
 
 

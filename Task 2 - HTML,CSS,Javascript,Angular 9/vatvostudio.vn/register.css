@@ -87,17 +87,25 @@ button {
   position: fixed;
   top: 2px;
   right: 2px;
-  width: 240px;
-  height: 100px;
-  border: 1px solid rgb(14, 240, 228);
-  background-color: rgb(14, 240, 228);
+  width: 0;
+  height: 0;
   display: none;
-  transition: all 0.25s;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
 }
 .notice-content {
   display: flex !important;
+  position: absolute;
+  border: 1px solid #28a745;
+  background-color: #28a745;
+  width: 240px;
+  height: 80px;
+  top: 5px;
+  right: 5px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 5px 5px lightblue;
+  font-size: 21px;
+  color: white;
 }
+
 

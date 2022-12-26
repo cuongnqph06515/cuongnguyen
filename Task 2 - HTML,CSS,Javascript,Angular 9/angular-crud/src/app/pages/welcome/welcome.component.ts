@@ -16,14 +16,13 @@ export class WelcomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.getAllUser();
-    
   }
 
   getAllUser(){
    this.employeeService.getAllEmployee().subscribe({
     next: (data)=>{
       this.listEmployee = data;
-      console.log(JSON.stringify(data));
+      console.log(data);
     },
     error: (err)=>{
       console.log(err);

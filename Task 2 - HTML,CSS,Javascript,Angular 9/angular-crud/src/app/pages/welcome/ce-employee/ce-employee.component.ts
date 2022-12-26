@@ -15,6 +15,7 @@ export class CeEmployeeComponent implements OnInit{
   employeeForm!: FormGroup;
   id: any;
   isSubmit!: boolean;
+  employee!: Employee[];
   constructor(private employeeService: EmployeeService, 
               private route: ActivatedRoute,
               private fb: FormBuilder,
@@ -69,8 +70,9 @@ export class CeEmployeeComponent implements OnInit{
     employee.address = this.employeeForm.value.address;
     employee.phone = this.employeeForm.value.phone;
     employee.gender = this.employeeForm.value.gender;
-
     if(this.id == 0){
+      employee.id = Math.ceil(Math.random()*50);
+      
       this.employeeService.addEmployee(employee).subscribe({
         next: () =>{
           this.router.navigateByUrl('/welcome');

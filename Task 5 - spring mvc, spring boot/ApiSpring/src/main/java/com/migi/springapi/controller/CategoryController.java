@@ -25,10 +25,16 @@ public class CategoryController {
         List<Category> listCategory = null;
         try {
             listCategory = categoryService.getListCategory();
+            apiResponse.setCode(200);
+            apiResponse.setStatus(true);
+            apiResponse.setMessage("Lấy thông tin loại hàng thành công");
+            apiResponse.setError("");
+            apiResponse.setData(listCategory);
         }catch (Exception e){
             apiResponse.setError(e.getMessage());
+            apiResponse.setMessage("Lấy thông tin loại hàng thất bại");
+            apiResponse.setStatus(false);
         }
-        apiResponse.setData(listCategory);
         return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
     }
 
@@ -39,32 +45,63 @@ public class CategoryController {
         try {
             Integer code = Integer.parseInt(categoryCode);
             category = categoryService.getCategoryById(code);
+            apiResponse.setCode(200);
+            apiResponse.setMessage("Lấy thông tin loại hàng thành công");
+            apiResponse.setError("");
+            apiResponse.setStatus(true);
+            apiResponse.setData(category);
         }catch(Exception ex){
-            apiResponse.setError(ex.getMessage());
+            apiResponse.setError(ex.getLocalizedMessage());
+            apiResponse.setMessage("Lấy thông tin loại hàng thất bại");
+            apiResponse.setStatus(false);
         }
-        apiResponse.setData(category);
         return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
     }
 
     @PostMapping("add")
-    public ResponseEntity<ApiResponse> addCategory(@RequestBody Category category){
+    public ResponseEntity<ApiResponse> addCategory(@RequestBody Category objCategory) {
         ApiResponse apiResponse = new ApiResponse();
-        if(category.getCategoryCode()!=null && category.getCategoryName()!=null){
-            categoryService.addCategory(category);
-        }else{
-            apiResponse.setError("error: categoryCode or categoryName is null");
+        try {
+            apiResponse.setStatus(false);
+            if(objCategory.getCategoryCode()==null || objCategory.getCategoryName().equals("")){
+                apiResponse.setMessage("Mã loại và tên loại không thể để trống");
+            }else if(categoryService.getCategoryById(objCategory.getCategoryCode()) != null){
+                apiResponse.setMessage("Mã loại hàng đã tồn tại");
+            }else{
+                categoryService.addCategory(objCategory);
+                apiResponse.setCode(200);
+                apiResponse.setMessage("Thêm loại hàng thành công");
+                apiResponse.setError("");
+                apiResponse.setStatus(true);
+            }
         }
-
+        catch (Exception ex){
+            apiResponse.setError(ex.getMessage());
+            apiResponse.setMessage("Thêm loại hàng thất bại");
+        }
         return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
     }
 
-    @PostMapping("update")
-    public ResponseEntity<ApiResponse> updateCategory(@RequestBody Category category){
+    @PutMapping("update")
+    public ResponseEntity<ApiResponse> updateCategory(@RequestBody Category objCategory){
         ApiResponse apiResponse = new ApiResponse();
-        if(category.getCategoryCode()!=null && category.getCategoryName()!=null){
-            categoryService.updateCategory(category);
-        }else{
-            apiResponse.setError("error: categoryCode or categoryName is null");
+        try {
+            apiResponse.setStatus(false);
+            if(objCategory.getCategoryCode()==null || objCategory.getCategoryName().equals("")){
+                apiResponse.setMessage("Mã loại và tên loại không đc trống");
+            }else if(categoryService.getCategoryById(objCategory.getCategoryCode()) == null){
+                apiResponse.setMessage("Mã loại hàng không tồn tại");
+            }else{
+                categoryService.addCategory(objCategory);
+                apiResponse.setCode(200);
+                apiResponse.setMessage("Cập nhật loại hàng thành công");
+                apiResponse.setError("");
+                apiResponse.setStatus(true);
+            }
+        }
+        catch (Exception ex){
+            apiResponse.setError(ex.getMessage());
+            apiResponse.setMessage("Cập nhật loại hàng thất bại");
         }
         return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
     }
@@ -75,8 +112,14 @@ public class CategoryController {
         try {
             Integer code = Integer.parseInt(categoryCode);
             categoryService.deleteCategory(code);
+            apiResponse.setCode(200);
+            apiResponse.setMessage("Xóa loại hàng thành công");
+            apiResponse.setError("");
+            apiResponse.setStatus(true);
         }catch(Exception ex){
             apiResponse.setError(ex.getMessage());
+            apiResponse.setMessage("Xóa loại hàng thất bại");
+            apiResponse.setStatus(false);
         }
         return new ResponseEntity<ApiResponse>(apiResponse, HttpStatus.OK);
     }

@@ -17,8 +17,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="library/fontawesome-free-6.2.1-web/css/all.min.css">
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="register.css">
+        <link rel="stylesheet" href="style.css">
         <title>Home</title>
     </head>
 
@@ -45,6 +45,7 @@
                 <div class="menu">
                     <div class="menu-left">
                         <ul id="lstMenu">
+                            <li class="menu-item"><img src="images/logo.png"></li>
                             <li class="menu-item active"><a href="http://127.0.0.1:5501/index.html">HOME</a></li>
                             <li class="menu-item"><a href="http://127.0.0.1:5501/register.html">ĐĂNG KÝ</a></li>
                             <li class="menu-item"><a href="https://vatvostudio.vn/">VẬT VỜ ĐÁNH GIÁ</a></li>
@@ -55,6 +56,7 @@
                     </div>
                     <div class="menu-right">
                         <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-bars" style="cursor: pointer;" id="menu-bar" onclick="menuToggle()"></i>
                     </div>
                 </div>
             </div>
@@ -155,6 +157,30 @@
         <div id="notice">
             <div class="notice-content">
                 <p>Đăng ký thành công</p>
+            </div>
+        </div>
+        <div class="menu-toggle" id="toggle">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-left">
+                    </div>
+                    <div class="header-center">
+                        <img src="images/logo.png" alt="nothing" style="margin-top: 20px;">
+                    </div>
+                    <div class="header-right">
+                        <i class="fa-solid fa-xmark" onclick="menuToggle()"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="toggle-content">
+                <ul class="toggle-item">
+                    <li ><a href="http://127.0.0.1:5501/index.html">HOME</a></li>
+                    <li ><a href="http://127.0.0.1:5501/register.html">ĐĂNG KÝ</a></li>
+                    <li ><a href="https://vatvostudio.vn/">VẬT VỜ ĐÁNH GIÁ</a></li>
+                    <li ><a href="https://vatvostudio.vn/">GÓC NHÌN</a></li>
+                    <li ><a href="https://vatvostudio.vn/">KÈO THƠM</a></li>
+                    <li ><a href="https://vatvostudio.vn/">TIPS & TRICKS</a></li>
+                    </ul>
             </div>
         </div>
         <script src="script.js"></script>
