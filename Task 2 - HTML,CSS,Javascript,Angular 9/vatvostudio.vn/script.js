@@ -14,7 +14,6 @@ for (var i = 0; i < menuItem.length; i++) {
 let id = (id) => document.getElementById(id);
 let classes = (className) => document.getElementsByClassName(className);
 let valid = true;
-
 let fullname = id("fullname"),
     username = id("username"),
     password = id("password"),
@@ -28,7 +27,7 @@ errorMessage = classes("error"),
 gender = classes("gender");
 
 
-let usernamePatern = new RegExp(/[^a-zA-Z0-9]/),
+let usernamePatern = new RegExp(/[^a-zA-Z0-9_]/),
     emailPatern = new RegExp(/^[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,3}/)
     paternMobile0 = new RegExp(/((09|03|07|08|05)+([0-9]{8})\b)/),
     paternMobile84 = new RegExp(/((84)+([0-9]{9})\b)/);
@@ -36,7 +35,7 @@ let usernamePatern = new RegExp(/[^a-zA-Z0-9]/),
 
 let validate = (id, serial, message) =>{
     if(id !== null){
-        if(id.value.trim() === "" && id !== repassword){
+        if(id.value.trim() === "" && (id === fullname || id ===username ||id===password)){
             errorMessage[serial].innerHTML = message + "không thể để trống!";
             id.style.border = "2px solid red";
             valid = false;
@@ -59,7 +58,7 @@ let validate = (id, serial, message) =>{
             id.style.border = "2px solid red";
             valid = false;
         }
-        else if(id === email){
+        else if(id === email && id.value.trim().length !== 0){
             if(!emailPatern.test(id.value.trim())){
                 errorMessage[serial].innerHTML = message + "không đúng định dạng. ex: example@gmail.com";
                 id.style.border = "2px solid red";
@@ -71,47 +70,41 @@ let validate = (id, serial, message) =>{
             }else{
                     errorMessage[serial].innerHTML = '';
                     id.style.border = "1px solid #e6e6e6";
-                    valid = true;
             }
         }
-        else if(id===address && id.value.length >500){
+        else if(id===address && id.value.length >500 && id.value.trim().length !== 0){
             errorMessage[serial].innerHTML = message + "không quá 500 ký tự!";
                 id.style.border = "2px solid red";
-                valid = false;
+                valid = "address";
         }
         else{
             errorMessage[serial].innerHTML = '';
             id.style.border = "1px solid #e6e6e6";
-            valid = true;
         }
     }
 }
 
 let checkGender = (gender, serial, message) =>{
-        if(gender[0].checked || gender[1].checked || gender[2].checked){
-            errorMessage[serial].innerHTML = '';
-        }
-        else{
-            errorMessage[serial].innerHTML = message + "phải được chọn!";
-        }
+        // if(gender[0].checked || gender[1].checked || gender[2].checked){
+        //     errorMessage[serial].innerHTML = '';
+        // }
+        // else{
+        //     errorMessage[serial].innerHTML = message + "phải được chọn!";
+        // }
 }
 
 let checkMobile = (id, serial) =>{
     let comp0 = paternMobile0.test(id.value);
     let comp84 = paternMobile84.test(id.value);
-    if(id.value.trim() === ""){
-        errorMessage[serial].innerHTML ="Số điện thoại không để trống!";
-        id.style.border = "2px solid red";
-        valid = false;
-    }else 
-    if(!comp84 && !comp0){
-        errorMessage[serial].innerHTML = "Số điện thoại không đúng định dạng!";
-        id.style.border = "2px solid red";
-        valid = false;
-    }else{
-        errorMessage[serial].innerHTML = '';
-        id.style.border = "1px solid #e6e6e6";
-        valid = true;
+    if(id.value.trim().length !==0){
+        if(!comp84 && !comp0){
+            errorMessage[serial].innerHTML = "Số điện thoại không đúng định dạng!";
+            id.style.border = "2px solid red";
+            valid = false;
+        }else{
+            errorMessage[serial].innerHTML = '';
+            id.style.border = "1px solid #e6e6e6";
+        }
     }
 }
 
@@ -123,8 +116,9 @@ let validateBirthday = (date) => {
     let year = parseInt(date.substring(0,4));
     let month = parseInt(date.substring(5,7));
     let day = parseInt(date.substring(8,10));
+    console.log("date:", date.length);
     if(year > currentYear){
-       return -1;
+        return -1;
     }else if(month > currentMonth && year === currentYear){
         return -1;
     }else if(day > currentDay && month === currentMonth && year === currentYear){
@@ -140,26 +134,23 @@ let toggleButton = (value) =>{
 }
 
 let checkBirthday = (id, serial) =>{
-    if(id.value.trim() === ""){
-        errorMessage[serial].innerHTML ="Ngày sinh không để trống!";
-        id.style.border = "2px solid red";
-        valid = false;
-    }
-    else if(validateBirthday(id.value)){
-        errorMessage[serial].innerHTML ="Ngày sinh không lớn hơn ngày hiện tại!";
-        id.style.border = "2px solid red";
-        valid = false;
-    }
-    else{
-        errorMessage[serial].innerHTML = '';
-        id.style.border = "1px solid #e6e6e6";
-        valid = true;
+    if(id.value.length === 10){
+        if(validateBirthday(id.value)){
+            errorMessage[serial].innerHTML ="Ngày sinh không lớn hơn ngày hiện tại!";
+            id.style.border = "2px solid red";
+            valid = false;
+        }
+        else{
+            errorMessage[serial].innerHTML = '';
+            id.style.border = "1px solid #e6e6e6";
+        }
     }
 }
 
 ["submit"].forEach(type =>{
     id("form").addEventListener(type, (e)=>{
         e.preventDefault();
+        valid = true;
         validate(fullname,0, "Họ tên ");
         validate(username,1, "Tài khoản ");
         validate(password,2, "Mật khẩu ");
@@ -181,7 +172,6 @@ let checkBirthday = (id, serial) =>{
 
 function menuToggle(){
     id("toggle").classList.toggle("show-menu");
-    id("overlay").classList.toggle("show-overlay");
 }
 
 

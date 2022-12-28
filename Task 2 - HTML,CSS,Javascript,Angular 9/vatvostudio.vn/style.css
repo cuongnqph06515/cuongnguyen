@@ -112,13 +112,13 @@
 
 .new-left {
     grid-column: 1/2;
-    padding-bottom: 15px;
+    margin-bottom: 15px;
     position: relative;
 }
 
 .new-right {
     grid-column: 2/3;
-    padding-bottom: 15px;
+    margin-bottom: 15px;
     position: relative;
 }
 
@@ -147,16 +147,63 @@
     position: absolute;
     display: inline-block;
 
-    left: 10px;
-    bottom: 30px;
+    /* left: 10px;
+    bottom: 30px; */
+    top: 0;
+    left: 0;
 
     color: white;
     font-size: 13px !important;
     font-weight: bold;
-    padding: 2px 5px;
+    padding: 0px 5px;
 
     letter-spacing: 1px;
     font-size: 9px !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    background-image: -webkit-linear-gradient(-270deg, black 0%, rgba(0, 0, 0, 0.917) 5.3%, rgba(0, 0, 0, 0.834) 10.6%, rgba(0, 0, 0, 0.753) 15.9%, rgba(0, 0, 0, 0.672) 21.3%, rgba(0, 0, 0, 0.591) 26.8%, rgba(0, 0, 0, 0.511) 32.5%, rgba(0, 0, 0, 0.433) 38.4%, rgba(0, 0, 0, 0.357) 44.5%, rgba(0, 0, 0, 0.283) 50.9%, rgba(0, 0, 0, 0.213) 57.7%, rgba(0, 0, 0, 0.147) 65%, rgba(0, 0, 0, 0.089) 72.9%, rgba(0, 0, 0, 0.042) 81.4%, rgba(0, 0, 0, 0.011) 90.6%, transparent 100%);
+}
+
+.ctitle {
+    display: inline;
+}
+.ctitle span{
+    margin: 0;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1.1rem;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+.comment::after {
+    content: '';
+    -webkit-box-flex: 1;
+    -webkit-box-ordinal-group: 2;
+    display: inline;
+    width: 80%;
+    border-top: 2px solid rgba(0, 0, 0, 0.05);
+}
+.main-title h1{
+    position: absolute;
+    bottom: 35px;
+    left: 25px;
+    font-size: 23px;
+    font-weight: 700 !important;
+    /* font-family: "Source Serif Pro",Arial, Helvetica, sans-serif; */
+
 }
 .main-title h1 a{
     text-decoration: none;

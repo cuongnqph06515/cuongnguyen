@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2ac63e0-2f37-418f-8e01-c529a34063e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/angular-crud/src/app/pages/welcome/ce-employee/ce-employee.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/angular-crud/src/app/pages/welcome/ce-employee/ce-employee.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Task 2 - HTML,CSS,Javascript,Angular 9/vatvostudio.vn/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +45,7 @@
       <updated>1672073193062</updated>
       <workItem from="1672073194350" duration="95000" />
       <workItem from="1672107238275" duration="1192000" />
+      <workItem from="1672203970811" duration="86000" />
     </task>
     <servers />
   </component>
@@ -57,5 +62,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
