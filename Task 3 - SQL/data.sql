@@ -32,18 +32,19 @@ CREATE TABLE IF NOT EXISTS `chitietdathang` (
   CONSTRAINT `FK_chitietdathang_mathang` FOREIGN KEY (`mahang`) REFERENCES `mathang` (`mahang`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table emp-manager.chitietdathang: ~8 rows (approximately)
+-- Dumping data for table emp-manager.chitietdathang: ~11 rows (approximately)
 INSERT INTO `chitietdathang` (`sohoadon`, `mahang`, `giaban`, `soluong`, `mucgiamgia`) VALUES
-	(5, '1', 8989, 121, 0),
-	(4, '2', 8989, 9, 0),
-	(5, '5', 8989, 9, 0),
-	(3, '2', 777, 28, 30),
-	(2, '2', 44, 4, 43),
-	(8, '7', 44, 4, 43),
-	(8, '5', 44, 4, 43),
-	(9, '5', 44, 4, 43),
-	(9, '1', 44, 123, 43),
-	(6, '1', 44, 50, 43);
+	(5, '1', 20000, 200, 0),
+	(4, '2', 30000, 9, 0),
+	(5, '5', 10000, 9, 0),
+	(3, '2', 30000, 28, 10),
+	(2, '2', 30000, 4, 15),
+	(8, '7', 10000, 4, 15),
+	(8, '5', 10000, 4, 10),
+	(9, '5', 10000, 4, 10),
+	(9, '1', 20000, 200, 10),
+	(6, '1', 20000, 200, 15),
+	(3, '2', 12000, 2, 30);
 
 -- Dumping structure for table emp-manager.dondathang
 CREATE TABLE IF NOT EXISTS `dondathang` (
@@ -87,11 +88,10 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
 
 -- Dumping data for table emp-manager.khachhang: ~4 rows (approximately)
 INSERT INTO `khachhang` (`makhachhang`, `tencongty`, `tengiaodich`, `diachi`, `email`, `dienthoai`, `fax`) VALUES
-	('1', 'cong ty khach hang 1', 'khachhang1', 'ham nghi', 'kh@gmail.com', '0992172636', '32rtwvhvb'),
-	('2', 'cong ty khach hang 2', 'khachhang2', 'ho tung mau', 'kh@gmail.com', '0992172636', '32rtwvhvb'),
-	('3', 'cong ty khach hang 3', 'khachhang3', 'ham nghi', 'kh@gmail.com', '0992172636', '32rtwvhvb'),
-	('4', 'cong ty khach hang 4', 'khachhang4', 'ho tung mau', 'kh@gmail.com', '0992172636', '32rtwvhvb'),
-	('5', 'cong ty 4', 'khachhang5', 'ham nghi', 'cuong@gmail.com', '099833722', 'đsvsdvsdvds');
+	('1', 'Samsung oppa', 'samsung', 'ham nghi', 'kh@gmail.com', '0992172636', '32rtwvhvb'),
+	('2', 'Lg korean', 'lg', 'ho tung mau', 'kh@gmail.com', '0992172636', '32rtwvhvb'),
+	('3', 'Xiaomi China', 'xiaomi', 'ham nghi', 'kh@gmail.com', '0992172636', '32rtwvhvb'),
+	('4', 'Gia công chip tsmc', 'tsmc', 'ho tung mau', 'kh@gmail.com', '0992172636', '32rtwvhvb');
 
 -- Dumping structure for table emp-manager.loaihang
 CREATE TABLE IF NOT EXISTS `loaihang` (
@@ -102,8 +102,8 @@ CREATE TABLE IF NOT EXISTS `loaihang` (
 
 -- Dumping data for table emp-manager.loaihang: ~14 rows (approximately)
 INSERT INTO `loaihang` (`maloaihang`, `tenloaihang`) VALUES
-	(1, 'cuongnguyen'),
-	(2, 'loai hang 2'),
+	(1, 'Đồ điện tử'),
+	(2, 'Đồ gia dụng'),
 	(3, 'loai hang 3'),
 	(4, 'loai hang 4'),
 	(6, 'cuongnguyen7'),
@@ -134,14 +134,14 @@ CREATE TABLE IF NOT EXISTS `mathang` (
 
 -- Dumping data for table emp-manager.mathang: ~8 rows (approximately)
 INSERT INTO `mathang` (`mahang`, `tenhang`, `macongty`, `maloaihang`, `soluong`, `donvitinh`, `giahang`) VALUES
-	('1', 'san pham 1', '1', 1, 754, 'chiec', 100),
-	('2', 'san pham 5', '2', 2, 14, 'chiec', 100),
-	('34', 'san pham 2', '1', 1, 10, 'tập', 100000),
-	('4', 'san pham 7', '2', 1, 7, 'chiec', 100),
-	('5', 'san pham 8', '3', 1, 115, 'chiec', 100),
-	('6', 'san pham 9', '3', 3, 67, 'chiec', 100),
-	('7', 'san pham 3', '1', 1, 45, 'chiec', 100),
-	('9', 'san pham 4', '1', 3, 232, 'chiec', 100);
+	('1', 'Bàn phím cơ', '1', 1, 754, 'chiec', 20000),
+	('2', 'Xiao mi 12t pro', '2', 2, 287, 'chiec', 30000),
+	('34', 'Bình giữ nhiệt', '1', 1, 432, 'chiec', 100000),
+	('4', 'Lót chuột', '2', 1, 151, 'chiec', 10000),
+	('5', 'Đế tản nhiệt', '3', 1, 115, 'chiec', 10000),
+	('6', 'Chuột không dây', '3', 3, 99, 'chiec', 10000),
+	('7', 'Nồi cơm điện', '1', 1, 322, 'chiec', 10000),
+	('9', 'Iphone 13 prm', '1', 3, 232, 'chiec', 10000);
 
 -- Dumping structure for table emp-manager.nhacungcap
 CREATE TABLE IF NOT EXISTS `nhacungcap` (
@@ -155,12 +155,13 @@ CREATE TABLE IF NOT EXISTS `nhacungcap` (
   PRIMARY KEY (`macongty`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table emp-manager.nhacungcap: ~4 rows (approximately)
+-- Dumping data for table emp-manager.nhacungcap: ~5 rows (approximately)
 INSERT INTO `nhacungcap` (`macongty`, `tencongty`, `tengiaodich`, `diachi`, `dienthoai`, `fax`, `email`) VALUES
-	('1', 'cong ty 1', 'khachhang1', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com'),
-	('2', 'cong ty 2', 'khachhang2', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com'),
-	('3', 'cong ty 3', 'khachhang3', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com'),
-	('4', 'cong ty 4', 'khachhang5', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com');
+	('1', 'Xiaomi', 'xiaomi', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com'),
+	('2', 'Samsung', 'samsung', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com'),
+	('3', 'Lg', 'lg', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com'),
+	('4', 'Tsmc', 'tsmc', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com'),
+	('5', 'Lenovo', 'lenovo', 'ham nghi', '099833722', 'đsvsdvsdvds', 'cuong@gmail.com');
 
 -- Dumping structure for table emp-manager.nhanvien
 CREATE TABLE IF NOT EXISTS `nhanvien` (
@@ -244,6 +245,23 @@ BEGIN
 		SET soluong = hanghienco-NEW.soluong
 		WHERE mahang = NEW.mahang;
 	ELSE
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'So luong hang ban ra khong phu hop';
+	END if;
+END//
+DELIMITER ;
+SET SQL_MODE=@OLDTMP_SQL_MODE;
+
+-- Dumping structure for trigger emp-manager.trigger_cau3_UPDATE
+SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION';
+DELIMITER //
+CREATE TRIGGER trigger_cau3_UPDATE
+BEFORE UPDATE ON chitietdathang
+FOR EACH ROW
+BEGIN 
+	DECLARE hanghienco INT;
+	SELECT soluong INTO hanghienco FROM mathang WHERE mahang = NEW.mahang;
+	
+	if(NEW.soluong > hanghienco or NEW.soluong <1) THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'So luong hang ban ra khong phu hop';
 	END if;
 END//

@@ -14,12 +14,16 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ToastrModule } from 'ngx-toastr';
+import { AgGridModule } from 'ag-grid-angular';
+import { DemoAgGridComponent } from './pages/demo-ag-grid/demo-ag-grid.component';
+import 'ag-grid-enterprise';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
+    DemoAgGridComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ registerLocaleData(en);
     NzLayoutModule,
     NzMenuModule,
     ToastrModule.forRoot(),
+    AgGridModule,
+    
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

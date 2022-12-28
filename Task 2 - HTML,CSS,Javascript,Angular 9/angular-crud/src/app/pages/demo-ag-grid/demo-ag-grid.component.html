@@ -1,0 +1,15 @@
+<button (click)="getSelectedRows()">Get Selected Rows</button>
+<button (click)="clearSelection()">Clear selection</button>
+<ag-grid-angular #agGrid
+style="width: 100%; height: 100%;"
+class="ag-theme-balham"
+[defaultColDef]="defaultColDef"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    [groupSelectsChildren]=true
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    [animateRows]="true"
+    (cellClicked)="onCellClicked($event)"
+></ag-grid-angular>
+
